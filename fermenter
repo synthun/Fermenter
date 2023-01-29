@@ -11,4 +11,4 @@ else
 	exit
 fi
 
-$lua "$HOME"/.local/share/fermenter/file/wrapper.lua "$@"
+$lua "$HOME"/.local/share/fermenter/assets/wrapper.lua "$@"
