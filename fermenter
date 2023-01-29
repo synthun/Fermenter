@@ -1,0 +1,14 @@
+#!/bin/sh
+
+if [ -n "$(command -v lua51)" ]; then
+	lua=$(command -v lua51)
+elif [ -n "$(command -v lua5.1)" ]; then
+	lua=$(command -v lua5.1)
+elif [ -n "$(command -v lua)" ]; then
+	lua=$(command -v lua)
+else
+	printf "Lua is required for Fermenter to work.\nPlease install it or change this shell script manually if it cannot be found."
+	exit
+fi
+
+$lua "$HOME"/.local/share/fermenter/file/wrapper.lua "$*"
