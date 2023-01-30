@@ -41,6 +41,14 @@ local function help()
 	print("-r	remove Roblox or modifications")
 end
 
+-- Boot Roblox
+local function boot(data)
+	local envVars = "WINEDEBUG=-all WINEPREFIX="..winePfx.." "
+	local ver = http.request("http://setup.roblox.com/version")
+
+	os.execute("sh -c '"..envVars.."wine "..winePfx.."/drive_c/Program\\ Files/Roblox/Versions/version-*/RobloxPlayerLauncher.exe "..data.."'")
+end
+
 -- Create .desktop file
 local function create_desktop_file()
 	local file = io.open(userHome.."/.local/share/applications/fermenter.desktop","w")
@@ -109,14 +117,6 @@ local function uninstall()
 	else
 		print("Roblox is already uninstalled.")
 	end
-end
-
-
-local function boot(data)
-	local envVars = "WINEDEBUG=-all WINEPREFIX="..winePfx.." "
-	local ver = http.request("http://setup.roblox.com/version")
-
-	os.execute("sh -c '"..envVars.."wine "..winePfx.."/drive_c/Program\\ Files/Roblox/Versions/version-*/RobloxPlayerLauncher.exe "..data.."'")
 end
 
 -- Check arguments
