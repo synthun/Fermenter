@@ -7,8 +7,8 @@ elif [ -n "$(command -v lua5.1)" ]; then
 elif [ -n "$(command -v lua)" ]; then
 	lua=$(command -v lua)
 else
-	printf "Lua is required for Fermenter to work.\nPlease install it or change this shell script manually if it cannot be found."
-	exit
+	printf "Lua is required for Fermenter to work.\nPlease install it or change this shell script manually if it cannot be found.\n"
+	exit 1
 fi
 
 $lua "$HOME"/.local/share/fermenter/assets/wrapper.lua "$@"
