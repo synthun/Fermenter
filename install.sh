@@ -12,5 +12,5 @@ if [ -z "$(find "$assets" -name "wrapper.lua")" ]; then
 fi
 
 if [ -z "$(find "$bin" -name "fermenter")" ]; then
-	cp "$($abs_path)"/fermenter "$bin"/fermenter
+	cp "$($abs_path)"/src/fermenter "$bin"/fermenter
 fi
